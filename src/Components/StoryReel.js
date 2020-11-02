@@ -1,19 +1,21 @@
 import React from 'react';
 import Story from './Story';
+import './StoryReel.css';
+
 const StoryReel=()=>{
     return(
         <div className="storyReel">
-            <Story image='https://www.google.com/url?sa=i&url=http%3A%2F%2Fclipart-library.com%2Fanimated-images.html&psig=AOvVaw0k4yJvYdaAvuyMarSuSWuS&ust=1604243222988000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODfqZmO3-wCFQAAAAAdAAAAABAD'
+            <Story image='https://upload.wikimedia.org/wikipedia/en/4/42/SasukeKishimoto.jpg'
                 profileSrc='https://upload.wikimedia.org/wikipedia/commons/e/e0/John_Cena_2012.jpg'
                 title='John Cena'
             />
-            <Story image=''
+            <Story image='https://upload.wikimedia.org/wikipedia/en/0/09/AshXYanime.png'
                 profileSrc='https://upload.wikimedia.org/wikipedia/en/d/dc/Kabir_Singh.jpg'
                 title='Kabir singh'
             />
-            <Story image=''
-                profileSrc='https://upload.wikimedia.org/wikipedia/commons/e/e0/John_Cena_2012.jpg'
-                title='Preeti Sikka'
+            <Story image='https://upload.wikimedia.org/wikipedia/en/9/9a/NarutoUzumaki.png'
+                profileSrc='https://upload.wikimedia.org/wikipedia/en/f/fc/Rambo_first_blood_part_ii.jpg'
+                title='Rambo'
             />
         </div>
     )

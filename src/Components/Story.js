@@ -1,6 +1,6 @@
 import React from 'react';
 import {Avatar} from '@material-ui/core';
-// import './Story.js';
+import './Story.css';
 
 const Story=({image,profileSrc,title})=>{
     return(
