@@ -21,7 +21,7 @@ const MessageSender=()=>{
     return(
         <div className="messageSender">
             <div className="messageSender__top">
-                <Avatar src="https://upload.wikimedia.org/wikipedia/en/d/dc/Kabir_Singh.jpg" />
+                <Avatar src="https://upload.wikimedia.org/wikipedia/en/4/42/SasukeKishimoto.jpg" />
                 <form>
                     <input type="test" className="messageSender__input"
                     placeholder="What's on your mind?"

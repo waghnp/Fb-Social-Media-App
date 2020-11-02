@@ -14,7 +14,7 @@ import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 const Sidebar=()=>{
     return(
         <div className="sidebar" >
-            <SidebarRow src="https://upload.wikimedia.org/wikipedia/en/d/dc/Kabir_Singh.jpg" title="Nilesh wagh" />
+            <SidebarRow src="https://upload.wikimedia.org/wikipedia/en/4/42/SasukeKishimoto.jpg" title="Nilesh wagh" />
             <SidebarRow Icon={LocalHospitalIcon} title="COVID-19 Information Center" />
             <SidebarRow Icon={EmojiFlagsIcon} title="Pages" />
             <SidebarRow Icon={PeopleIcon} title="Friends" />

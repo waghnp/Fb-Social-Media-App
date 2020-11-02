@@ -1,12 +1,19 @@
 import React from 'react';
 import StoryReel from './StoryReel';
 import MessageSender from './MessageSender';
+import Post from './Post';
 
 const Feed=()=>{
     return(
         <div className="feed">
             <StoryReel/>
-            <MessageSender/>            
+            <MessageSender/>
+            <Post
+            profilePic='https://upload.wikimedia.org/wikipedia/en/4/42/SasukeKishimoto.jpg'
+            message='This is my Message'
+            timestamp='time'
+            imgName='imgName'
+            username='Nilesh wagh'/>            
         </div>
     )
 }
