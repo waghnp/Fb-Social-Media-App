@@ -2,6 +2,7 @@ import React from 'react';
 import StoryReel from './StoryReel';
 import MessageSender from './MessageSender';
 import Post from './Post';
+import './Feed.css'
 
 const Feed=()=>{
     return(

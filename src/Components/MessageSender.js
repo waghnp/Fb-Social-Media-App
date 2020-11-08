@@ -3,11 +3,13 @@ import {Avatar,Input} from '@material-ui/core';
 import VideoCallIcon from '@material-ui/icons/VideoCall';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import {useStateValue} from '../ContextAPI/StateProvider';
 import './MessageSender.css'
 
 const MessageSender=()=>{
     const [input,setInput]=useState('')
     const [image,setImage]=useState(null)
+    const [{user},dispatch]=useStateValue();  
 
     const handleChange=(e)=>{
         if(e.target.files[0]){
@@ -21,10 +23,10 @@ const MessageSender=()=>{
     return(
         <div className="messageSender">
             <div className="messageSender__top">
-                <Avatar src="https://upload.wikimedia.org/wikipedia/en/4/42/SasukeKishimoto.jpg" />
+                <Avatar src={user.photoURL} />
                 <form>
                     <input type="test" className="messageSender__input"
-                    placeholder="What's on your mind?"
+                    placeholder={`What's on your mind, ${user.displayName} ?`}
                     value={input}
                     onChange={(e)=>setInput(e.target.value)}/>
                    <Input type="file" className="messageSender__fileSelector" onChange={handleChange} />
