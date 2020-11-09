@@ -4,11 +4,14 @@ import VideoCallIcon from '@material-ui/icons/VideoCall';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import {useStateValue} from '../ContextAPI/StateProvider';
+import axios from '../axios';
+import FormData from 'form-data';
 import './MessageSender.css'
 
 const MessageSender=()=>{
     const [input,setInput]=useState('')
-    const [image,setImage]=useState(null)
+    const [image,setImage]=useState(null);
+
     const [{user},dispatch]=useStateValue();  
 
     const handleChange=(e)=>{
@@ -17,8 +20,54 @@ const MessageSender=()=>{
         }
     }
 
-    const handleSubmit=()=>{
-        console.log('Submitting')
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+
+        if(image){
+            const imgForm=new FormData();
+            imgForm.append('file',image,image.name);
+
+            axios.post('/upload/image',imgForm,{
+                headers:{
+                    'accept':'application/json',
+                    'Accept-Language':'en-US,en;q=0.8',
+                    'Content-Type':`multipart form-data;boundary=${imgForm._boundary}`
+                }
+            }).then((res)=>{
+                console.log(res.data)
+
+                const postData={
+                    text:input,
+                    imgName:res.data.filename,
+                    user:user.displayName,
+                    avatar:user.photoURL,
+                    timestamp:Date.now()
+                }
+
+                console.log(postData)
+                savePost(postData)
+            })
+        }else{ 
+            const postData={
+                text:input,
+                user:user.displayName,
+                avatar:user.photoURL,
+                timestamp:JSON.stringify(Date.now())
+            }
+
+            console.log(postData)
+            savePost(postData)
+        }
+
+        setImage(null)
+        setInput('')
+    }
+
+    const savePost=async(postData)=>{
+       await axios.post('/upload/post',postData)
+        .then((res)=>{
+            console.log(res)
+        })
     }
     return(
         <div className="messageSender">

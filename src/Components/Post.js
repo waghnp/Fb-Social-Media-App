@@ -8,6 +8,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import './Post.css';
 
 const Post=({profilePic,message,timestamp,imgName,username})=>{
+    console.log(timestamp)
     return(
         <div className="post">
             <div className="post__top">
@@ -19,8 +20,16 @@ const Post=({profilePic,message,timestamp,imgName,username})=>{
             </div>
             <div className="post__bottom">
                 <p>{message}</p>
-                {/* image is uploaded soon */}
             </div>
+            {
+                imgName?(
+                    <div className="post__image">
+                            <img src={ `http://localhost:9000/retrieve/images/single?name=${imgName}` }/>
+                    </div>
+                ):(
+                    console.log("DEBUG >>> no image here")
+                )
+            }
             <div className="post__options">
                     <div className="post__option">
                         <ThumbUpIcon/>
