@@ -24,7 +24,7 @@ const Post=({profilePic,message,timestamp,imgName,username})=>{
             {
                 imgName?(
                     <div className="post__image">
-                            <img src={ `http://localhost:9000/retrieve/images/single?name=${imgName}` }/>
+                            <img src={ `https://its-mine.herokuapp.com/retrieve/images/single?name=${imgName}` }/>
                     </div>
                 ):(
                     console.log("DEBUG >>> no image here")
